@@ -8,7 +8,7 @@ To do this, the host must have installed the following packages:
 - git
 - build-essential for make support
 
-###It provides
+### Provides
 
 - NGINX as SSL termination
 - NGINX to serve frontend
