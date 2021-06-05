@@ -1,1 +1,3 @@
 conf/*.pem
+api/*
+gui/*
