@@ -26,7 +26,7 @@ services:
     restart: always
 
     container_name: node_api
-    command: /.startup.sh
+    command: startup.sh
     volumes:
       - ./scripts/api.sh:/startup.sh
       - ./api:/var/api
@@ -42,4 +42,7 @@ services:
   compile:
     image: node:14-alpine
     container_name: node_api
-    command: tail -f /dev/null
+    command: startup.sh
+    volumes:
+      - ./gui:/var/gui
+      - ./scripts/compile.sh:/.startup.sh
