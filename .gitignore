@@ -1,0 +1,4 @@
+conf/*.pem
+api/
+gui/
+.env
