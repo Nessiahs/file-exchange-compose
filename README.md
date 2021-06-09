@@ -23,7 +23,7 @@ Install my-project with npm
   git clone git@github.com:Nessiahs/file-exchange-compose.git
   cd file-exchange-compose
   make install
-  cp .env.example > .env
+  cp .env.example .env
 ```
 
 Edit the `.env`
