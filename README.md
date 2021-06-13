@@ -20,7 +20,7 @@ To do this, the host must have installed the following packages:
 Install my-project with npm
 
 ```bash
-  git clone git@github.com:Nessiahs/file-exchange-compose.git
+  git clone https://github.com/Nessiahs/file-exchange-compose.git
   cd file-exchange-compose
   make install
   cp .env.example .env
