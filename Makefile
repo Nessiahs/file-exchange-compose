@@ -11,17 +11,20 @@ stop:
 	docker-compose stop
 
 restart:
-	docker exec -it node_api sh -c 'cd /var/api/ && ./node_modules/.bin/pm2 restart backend'
+	docker exec -i api sh -c 'cd /var/api/ && ./node_modules/.bin/pm2 restart backend'
 
 compile:
 	make compilegui
-	docker exec -it api sh -c 'cd /var/api && yarn install && yarn build'
+	make compileapi
+
+compileapi:
+	docker exec -i api sh -c 'cd /var/api && yarn install && yarn build'
 
 compilegui:
-	docker exec -it compile sh -c 'cd /var/gui && yarn install && yarn build'
+	docker exec -i compile sh -c 'cd /var/gui && yarn install && yarn build'
 
 api-start:
-	docker exec -it api sh -c 'cd /var/api/ && ./node_modules/.bin/pm2 start ./dist -name "backend"'
+	docker exec -i api sh -c 'cd /var/api/ && ./node_modules/.bin/pm2 start ./dist --name "backend"'
 
 first:
 	make up
@@ -35,3 +38,8 @@ start:
 updategui:
 	cd ./gui && git pull
 	make compilegui
+
+updateapi:
+	cd ./api && git pull
+	make compileapi
+	make restart
